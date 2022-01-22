@@ -20,10 +20,9 @@ nnoremap gtf <C-w>gf
 
 """ BUFFERS CONTROL
 nnoremap <leader>T :enew<cr> :e 
-nnoremap <A-l> :bnext<cr>
-nnoremap <A-h> :bprevious<cr>
+nnoremap <Tab> :bnext<cr>
+nnoremap <S-Tab> :bprevious<cr>
 nnoremap <leader>bq :w<cr>:bp <BAR> bd #<cr>
-nnoremap <leader>bl :ls<cr>
 
 """ WINDOW CONTROL
 nnoremap <leader>l <C-w>l
@@ -39,7 +38,7 @@ nmap <silent> gd :lua vim.lsp.buf.definition()<CR>
 nmap <silent> gi :lua vim.lsp.buf.implementation()<CR>
 nmap <silent> gr :lua vim.lsp.buf.references()<CR>
 nmap <leader>do :lua vim.lsp.buf.code_action()<CR>
-nmap <leader>bf :lua vim.lsp.buf.formatting()<CR>
+nmap <leader>bf :Neoformat<CR>
 
 """ NERDTREE
 nnoremap <leader>nt :NERDTreeFind<CR>

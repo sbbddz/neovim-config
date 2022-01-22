@@ -17,6 +17,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
+Plug 'sbdchd/neoformat'
 
 """ Appearance
 Plug 'itchyny/lightline.vim'

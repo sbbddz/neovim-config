@@ -37,6 +37,9 @@ lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlig
 """ TELESCOPE
 lua require('telescope').setup{  defaults = { file_ignore_patterns = { "node_modules" }} }
 
-""" LSP CONFIGURATION
+""" LSP 
 lua require('language')
 lua require('nvimpairs')
+
+""" NEOFORMAT
+let g:neoformat_try_node_exe = 1

@@ -3,7 +3,7 @@ so ~/.config/nvim/sets.vim
 
 """ PLUGINS
 so ~/.config/nvim/plugins.vim
-"
+
 """ CONFIGS
 so ~/.config/nvim/configs.vim
 
