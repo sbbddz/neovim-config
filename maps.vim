@@ -1,18 +1,6 @@
 """ LEADER
 let mapleader = " "
 
-""" SAVE WITH CONTROL + S 
-nnoremap <c-s> :w<cr>
-onoremap <c-s> :w<cr>
-inoremap <c-s> :w<cr>
-vnoremap <c-s> :w<cr>
-
-""" NORMAL MODE WITH CONTROL + C
-nnoremap <c-c> <esc>
-onoremap <c-c> <esc>
-inoremap <c-c> <esc>
-vnoremap <c-c> <esc>
-
 """ TAB CONTROL
 nnoremap <leader>e :tabedit<Space>
 nnoremap <leader>c :tabclose<cr>

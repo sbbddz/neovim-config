@@ -5,9 +5,8 @@ endif
 
 let ayucolor="dark"
 colorscheme ayu
-hi Normal ctermbg=16 guibg=#000000
-hi LineNr ctermbg=16 guibg=#000000
-let g:gruvbox_contrast_dark="hard"
+hi Normal ctermbg=NONE guibg=NONE
+hi LineNr ctermbg=NONE guibg=NONE
 
 """ LIGHTLINE
 let g:lightline = { 'colorscheme': 'simpleblack' }
