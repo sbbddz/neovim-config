@@ -29,8 +29,7 @@ nmap <leader>do :lua vim.lsp.buf.code_action()<CR>
 nmap <leader>bf :Neoformat<CR>
 
 """ NERDTREE
-nnoremap <leader>nt :NERDTreeFind<CR>
-nnoremap <leader>nf :NERDTreeFocus<CR>
+nnoremap <leader>nt :vs.<CR>
 
 """ EASYMOTION
 nmap <leader>s <Plug>(easymotion-s2)

@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
   """ IDE
     Plug 'windwp/nvim-autopairs'
     Plug 'mattn/emmet-vim'
-    Plug 'preservim/nerdtree'
     Plug 'easymotion/vim-easymotion'
     Plug 'sbdchd/neoformat'
 
