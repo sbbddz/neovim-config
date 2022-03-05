@@ -25,7 +25,7 @@ let g:lightline.component_raw    = {'buffers': 1}
 lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
 """ TELESCOPE
-lua require('telescope').setup{  defaults = { file_ignore_patterns = { "node_modules" }} }
+lua require('telescope').setup{ defaults = { file_ignore_patterns = { "node_modules" } }, pickers = { find_files = { hidden = true } } }
 
 """ LSP 
 lua require('language')
@@ -33,3 +33,8 @@ lua require('nvimpairs')
 
 """ NEOFORMAT
 let g:neoformat_try_node_exe = 1
+
+""" NETRW
+let g:netrw_winsize = 10
+let g:netrw_localcopydircmd = 'cp -r'
+let g:netrw_keepdir = 0

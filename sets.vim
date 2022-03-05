@@ -26,6 +26,7 @@ set wildmenu
 set scrolloff=8
 set showtabline=2
 set nohlsearch
+set ignorecase
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
     set signcolumn=number
