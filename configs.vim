@@ -3,7 +3,6 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let ayucolor="dark"
 colorscheme ayu
 hi Normal ctermbg=NONE guibg=NONE
 hi LineNr ctermbg=NONE guibg=NONE
@@ -38,3 +37,6 @@ let g:neoformat_try_node_exe = 1
 let g:netrw_winsize = 10
 let g:netrw_localcopydircmd = 'cp -r'
 let g:netrw_keepdir = 0
+
+""" SYNTAX 
+autocmd BufRead,BufNewFile *.xtx,*.tex set filetype=tex

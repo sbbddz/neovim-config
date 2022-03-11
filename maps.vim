@@ -20,6 +20,7 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <C-p> :lua require('telescope.builtin').buffers()<CR>
 nnoremap <C-f> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>fp :lua require('telescope.builtin').live_grep()<CR>
 
 """ LSP MAPS
 nmap <silent> gd :lua vim.lsp.buf.definition()<CR>

@@ -24,10 +24,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'morhetz/gruvbox'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'joshdick/onedark.vim'
 
   """ Syntax Utilities 
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'lervag/vimtex'
 
   """ Last to load
     Plug 'ryanoasis/vim-devicons'
