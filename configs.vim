@@ -3,7 +3,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme ayu
+colorscheme cplex
 hi Normal ctermbg=NONE guibg=NONE
 hi LineNr ctermbg=NONE guibg=NONE
 

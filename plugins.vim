@@ -22,9 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'mengelbrecht/lightline-bufferline'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'morhetz/gruvbox'
     Plug 'ayu-theme/ayu-vim'
-    Plug 'joshdick/onedark.vim'
 
   """ Syntax Utilities 
     Plug 'lukas-reineke/indent-blankline.nvim'
