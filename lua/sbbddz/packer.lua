@@ -1,4 +1,4 @@
-local status, packer = pcall(require, "packer")
+local status, _ = pcall(require, "packer")
 
 if not status then
 	print("[ERROR] Packer is needed for this configuration to work")
@@ -42,7 +42,6 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 	use("glepnir/lspsaga.nvim")
-
 	use("ayu-theme/ayu-vim")
 	use("folke/tokyonight.nvim")
 	use("hoob3rt/lualine.nvim")

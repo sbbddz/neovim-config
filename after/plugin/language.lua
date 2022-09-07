@@ -117,6 +117,7 @@ require("lspconfig").sumneko_lua.setup({
 	},
 })
 require("lspconfig").tsserver.setup({})
+require("lspconfig").rust_analyzer.setup({})
 
 -- Setup treesitter
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
