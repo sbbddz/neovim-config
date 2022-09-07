@@ -79,7 +79,7 @@ vim.cmd([[
   set completeopt=menuone,noinsert,noselect
 ]])
 
--- No longer needed? 
+-- No longer needed?
 -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
 -- Setup mason
@@ -118,6 +118,8 @@ require("lspconfig").sumneko_lua.setup({
 })
 require("lspconfig").tsserver.setup({})
 require("lspconfig").rust_analyzer.setup({})
+require("lspconfig").cssls.setup({})
+require("lspconfig").html.setup({})
 
 -- Setup treesitter
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
@@ -133,13 +135,13 @@ require("nvim-treesitter.configs").setup({
 	incremental_selection = { enable = true },
 	textobjects = { enable = true },
 	autotag = { enable = true },
-  ensure_installed = {
-    'tsx',
-    'lua',
-    'python',
-    'typescript',
-    'css',
-    'json',
-    'rust'
-  }
+	ensure_installed = {
+		"tsx",
+		"lua",
+		"python",
+		"typescript",
+		"css",
+		"json",
+		"rust",
+	},
 })
