@@ -45,6 +45,7 @@ return require("packer").startup(function()
 	use("ayu-theme/ayu-vim")
 	use("folke/tokyonight.nvim")
 	use("hoob3rt/lualine.nvim")
+  use("catppuccin/nvim")
 
 	--- Syntax Utilities
 	use("lervag/vimtex")

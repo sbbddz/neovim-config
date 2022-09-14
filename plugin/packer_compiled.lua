@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/neoformat",
     url = "https://github.com/sbdchd/neoformat"
   },
+  nvim = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim-autopairs",

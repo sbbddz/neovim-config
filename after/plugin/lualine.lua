@@ -20,6 +20,7 @@ lualine.setup({
 				filetype_names = {
 					netrw = "Files",
 				},
+        max_length = vim.o.columns,
 				symbols = {
 					modified = "*",
 					alternate_file = "",
