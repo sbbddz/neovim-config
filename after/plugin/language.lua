@@ -120,6 +120,7 @@ require("lspconfig").tsserver.setup({})
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").cssls.setup({})
 require("lspconfig").html.setup({})
+require("lspconfig").gopls.setup({})
 
 -- Setup treesitter
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
