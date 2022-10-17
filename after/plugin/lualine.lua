@@ -11,28 +11,4 @@ lualine.setup({
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 	},
-	tabline = {
-		lualine_a = {
-			{
-				"buffers",
-				show_modified_status = true,
-				mode = 2,
-				filetype_names = {
-					netrw = "Files",
-				},
-        max_length = vim.o.columns,
-				symbols = {
-					modified = "*",
-					alternate_file = "",
-					directory = "",
-				},
-			},
-		},
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {},
-	},
 })
-

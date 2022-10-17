@@ -39,17 +39,16 @@ return require("packer").startup(function()
 	--- Appearance
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
+		run = ":TSUpdate"
 	})
 	use("glepnir/lspsaga.nvim")
 	use("ayu-theme/ayu-vim")
 	use("folke/tokyonight.nvim")
 	use("hoob3rt/lualine.nvim")
   use("catppuccin/nvim")
+  -- While lualine doesnt fix buffer bugs
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'kyazdani42/nvim-web-devicons'}
 
 	--- Syntax Utilities
 	use("lervag/vimtex")
-
-	--- Last to load
-	use("ryanoasis/vim-devicons")
 end)
