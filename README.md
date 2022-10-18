@@ -1,3 +1,3 @@
 # Samuel's neovim configurations
 
-![nvimscreenshot](nvim200822.png)
+![nvimscreenshot](nvim181022.png)
