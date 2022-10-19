@@ -46,8 +46,9 @@ return require("packer").startup(function()
 	use("folke/tokyonight.nvim")
 	use("hoob3rt/lualine.nvim")
 	use("catppuccin/nvim")
+  -- thinking about posting a issue about this behaviour, while just use my fork
 	use({
-		"noib3/nvim-cokeline",
+		"sbbddz/nvim-cokeline",
 		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
 	})
 

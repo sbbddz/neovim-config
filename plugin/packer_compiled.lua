@@ -162,7 +162,7 @@ _G.packer_plugins = {
   ["nvim-cokeline"] = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim-cokeline",
-    url = "https://github.com/noib3/nvim-cokeline"
+    url = "https://github.com/sbbddz/nvim-cokeline"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

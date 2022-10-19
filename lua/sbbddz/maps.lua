@@ -1,8 +1,15 @@
 local keymap = vim.keymap
+local cokeline, _ = pcall(require, "cokeline")
 
 --- BUFFERS
-keymap.set("n", "<Tab>", ":bnext<cr>")
-keymap.set("n", "<S-Tab>", ":bprevious<cr>")
+if cokeline then
+	keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)")
+	keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)")
+else
+	keymap.set("n", "<Tab>", ":bnext<cr>")
+	keymap.set("n", "<S-Tab>", ":bprevious<cr>")
+end
+
 keymap.set("n", "<leader>bq", ":w<cr>:bp <BAR> bd #<cr>")
 
 --- TELESCOPE
