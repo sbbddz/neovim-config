@@ -8,6 +8,10 @@ end
 local get_hex = require("cokeline/utils").get_hex
 local green = vim.g.terminal_color_2
 
+vim.cmd([[
+  let g:netrw_bufsettings = 'noma nomod nonu nowrap ro buflisted'
+]])
+
 bfline.setup({
 	default_hl = {
 		fg = function(buffer)
