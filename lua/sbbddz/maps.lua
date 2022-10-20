@@ -13,7 +13,11 @@ end
 keymap.set("n", "<leader>bq", ":w<cr>:bp <BAR> bd #<cr>")
 
 --- TELESCOPE
-keymap.set("n", "<leader>ff", ":Telescope find_files<cr>")
+keymap.set("n", "<leader>ff", function() 
+  require("telescope.builtin").find_files({
+    hidden = true
+  })
+end)
 keymap.set("n", "<C-p>", function()
 	require("telescope.builtin").buffers()
 end)

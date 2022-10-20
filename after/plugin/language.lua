@@ -116,12 +116,33 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
-require("lspconfig").tsserver.setup({})
-require("lspconfig").rust_analyzer.setup({})
-require("lspconfig").cssls.setup({})
-require("lspconfig").html.setup({})
-require("lspconfig").gopls.setup({})
-require("lspconfig").svelte.setup({})
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+require("lspconfig").tsserver.setup({
+	on_attach = on_attach,
+  capabilities = capabilities
+})
+require("lspconfig").rust_analyzer.setup({
+	on_attach = on_attach,
+  capabilities = capabilities
+})
+require("lspconfig").cssls.setup({
+	on_attach = on_attach,
+  capabilities = capabilities
+})
+require("lspconfig").html.setup({
+	on_attach = on_attach,
+  capabilities = capabilities
+})
+require("lspconfig").gopls.setup({
+	on_attach = on_attach,
+  capabilities = capabilities
+})
+require("lspconfig").svelte.setup({
+	on_attach = on_attach,
+  capabilities = capabilities
+})
 
 -- Setup treesitter
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
