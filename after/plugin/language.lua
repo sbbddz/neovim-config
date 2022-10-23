@@ -103,6 +103,8 @@ masonlsp.setup({
 })
 
 -- Setup lspconfig
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 require("lspconfig").sumneko_lua.setup({
 	on_attach = on_attach,
 	settings = {
@@ -115,33 +117,42 @@ require("lspconfig").sumneko_lua.setup({
 			},
 		},
 	},
+	capabilities = capabilities,
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require("lspconfig").tailwindCSS.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 require("lspconfig").tsserver.setup({
 	on_attach = on_attach,
-  capabilities = capabilities
+	capabilities = capabilities,
 })
+
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
-  capabilities = capabilities
+	capabilities = capabilities,
 })
+
 require("lspconfig").cssls.setup({
 	on_attach = on_attach,
-  capabilities = capabilities
+	capabilities = capabilities,
 })
+
 require("lspconfig").html.setup({
 	on_attach = on_attach,
-  capabilities = capabilities
+	capabilities = capabilities,
 })
+
 require("lspconfig").gopls.setup({
 	on_attach = on_attach,
-  capabilities = capabilities
+	capabilities = capabilities,
 })
+
 require("lspconfig").svelte.setup({
 	on_attach = on_attach,
-  capabilities = capabilities
+	capabilities = capabilities,
 })
 
 -- Setup treesitter
