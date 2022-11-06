@@ -9,7 +9,10 @@ return require("packer").startup(function()
 	--- Packer
 	use("wbthomason/packer.nvim")
 
-	-- Plenary
+  --- Does this really speed nvim up?
+  use 'lewis6991/impatient.nvim'
+
+	--- Plenary
 	use("nvim-lua/plenary.nvim")
 
 	--- Fuzzy finder
@@ -42,15 +45,21 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 	use("glepnir/lspsaga.nvim")
-	use("ayu-theme/ayu-vim")
-	use("folke/tokyonight.nvim")
 	use("hoob3rt/lualine.nvim")
-	use("catppuccin/nvim")
   -- thinking about posting a issue about this behaviour, while just use my fork
 	use({
 		"sbbddz/nvim-cokeline",
 		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
 	})
+
+  --- Colorschemes
+	-- use("catppuccin/nvim")
+	-- use("folke/tokyonight.nvim")
+	use("EdenEast/nightfox.nvim")
+	-- use("ayu-theme/ayu-vim")
+  use("tjdevries/colorbuddy.nvim")
+  use("svrana/neosolarized.nvim")
+
 
 	--- Syntax Utilities
 	use("lervag/vimtex")

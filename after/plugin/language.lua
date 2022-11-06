@@ -155,6 +155,11 @@ require("lspconfig").svelte.setup({
 	capabilities = capabilities,
 })
 
+require("lspconfig").eslint.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
 -- Setup treesitter
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 
