@@ -59,6 +59,7 @@ return require("packer").startup(function()
 	-- use("ayu-theme/ayu-vim")
   use("tjdevries/colorbuddy.nvim")
   use("svrana/neosolarized.nvim")
+  use("navarasu/onedark.nvim")
 
 
 	--- Syntax Utilities

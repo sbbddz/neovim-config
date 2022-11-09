@@ -160,6 +160,11 @@ require("lspconfig").eslint.setup({
   capabilities = capabilities
 })
 
+require("lspconfig").pyright.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
 -- Setup treesitter
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 
