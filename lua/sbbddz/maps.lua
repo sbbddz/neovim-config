@@ -23,3 +23,5 @@ keymap.set("n", "<leader>cp", ":cprev<cr>")
 
 --- [[ MISCELLANEA ]]
 keymap.set("i", "<C-c>", "<ESC>")
+keymap.set("t", "<Esc>", "<C-\\><C-n>")
+keymap.set("n", "<leader>tt", ":terminal<cr>")
