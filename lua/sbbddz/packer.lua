@@ -6,24 +6,20 @@ if not status then
 end
 
 return require("packer").startup(function()
-	--- Packer
+	--- [[  MISCELLANEA  ]]
 	use("wbthomason/packer.nvim")
+	use("lewis6991/impatient.nvim")
 
-  --- Does this really speed nvim up?
-  use 'lewis6991/impatient.nvim'
-
-	--- Plenary
+	--- [[  PLENARY  ]]
 	use("nvim-lua/plenary.nvim")
 
-	--- Fuzzy finder
+	--- [[  TELESCOPE  ]]
 	use("nvim-telescope/telescope.nvim")
 
-	--- LSP
+	--- [[  LSP  ]]
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
-
-	--- NVIM CMP
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
@@ -31,37 +27,31 @@ return require("packer").startup(function()
 	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
-	use("onsails/lspkind.nvim")
 
-	--- IDE
+	--- [[  IDE  ]]
 	use("windwp/nvim-autopairs")
-	use("mattn/emmet-vim")
-	use("easymotion/vim-easymotion")
 	use("sbdchd/neoformat")
-
-	--- Appearance
+	use("lukas-reineke/indent-blankline.nvim")
+	use("tpope/vim-sleuth")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("glepnir/lspsaga.nvim")
+
+	--- [[  LUALINE && BUFFERLINE  ]]
 	use("hoob3rt/lualine.nvim")
-  -- thinking about posting a issue about this behaviour, while just use my fork
 	use({
 		"sbbddz/nvim-cokeline",
 		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
 	})
 
-  --- Colorschemes
-	-- use("catppuccin/nvim")
-	-- use("folke/tokyonight.nvim")
+	--- [[  COLORSCHEMES  ]]
 	use("EdenEast/nightfox.nvim")
-	-- use("ayu-theme/ayu-vim")
-  use("tjdevries/colorbuddy.nvim")
-  use("svrana/neosolarized.nvim")
-  use("navarasu/onedark.nvim")
+	use("tjdevries/colorbuddy.nvim")
+	use("svrana/neosolarized.nvim")
+	use("navarasu/onedark.nvim")
 
-
-	--- Syntax Utilities
+	--- [[  OTHER LANGUAGES  ]]
 	use("lervag/vimtex")
+	use("baabelfish/nvim-nim")
 end)

@@ -1,7 +1,8 @@
+--- [[  BUFFERLINE  ]]
 local status, bfline = pcall(require, "cokeline")
 
 if not status then
-	print("[WARN] No lualine is installed")
+	print("[WARN] No cokeline is installed")
 	return
 end
 
@@ -29,6 +30,7 @@ bfline.setup({
 				return buffer.devicon.color
 			end,
 		},
+		{ text = " " },
 		{
 			text = function(buffer)
 				return buffer.unique_prefix .. buffer.filename

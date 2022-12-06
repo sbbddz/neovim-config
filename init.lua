@@ -1,7 +1,10 @@
---- Impatient 
+--- [[  IMPATIENT FIRST  ]]
+pcall(require, "impatient")
 
-require('impatient')
+--- [[  EARLY MAPS  ]]
+vim.g.mapleader = " "
 
+--- [[  BASICS && PLUGINS && KEYMAPS  ]]
 require("sbbddz.set")
-require("sbbddz.packer")
 require("sbbddz.maps")
+require("sbbddz.packer")

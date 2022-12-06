@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 vim.opt.shell = 'zsh'
@@ -10,10 +8,10 @@ vim.opt.visualbell = true
 vim.opt.errorbells = false
 vim.opt.mouse = 'a'
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
 vim.opt.smartindent = true
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
@@ -23,7 +21,6 @@ vim.opt.ignorecase = true
 
 vim.opt.shortmess:append('c')
 vim.opt.path:append('**')
---vim.opt.wildmenu = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
