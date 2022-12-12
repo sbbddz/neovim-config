@@ -50,6 +50,7 @@ return require("packer").startup(function()
 	use("tjdevries/colorbuddy.nvim")
 	use("svrana/neosolarized.nvim")
 	use("navarasu/onedark.nvim")
+	use("folke/tokyonight.nvim")
 
 	--- [[  OTHER LANGUAGES  ]]
 	use("lervag/vimtex")

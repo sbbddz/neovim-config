@@ -1,11 +1,12 @@
 --- [[  INDENT BLANKLINE  ]]
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
 
 require("indent_blankline").setup({
 	show_end_of_line = true,
-	space_char_blankline = " ",
+	space_char_hightlight_list = {
+		"IndentSpaceLine",
+	},
 })
 
 ---- [[  COLORSCHEME  ]]
@@ -13,12 +14,12 @@ vim.g.tokyonight_transparent_sidebar = true
 vim.g.tokyonight_transparent = true
 vim.g.catppuccin_flavour = "macchiato"
 
-require("onedark").setup({
-	theme = "darker",
-	transparent = "true",
-})
+vim.cmd [[colorscheme tokyonight]]
 
-require("onedark").load()
+require("tokyonight").setup({
+	style = "night",
+	transparent = true
+})
 
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
@@ -33,6 +34,7 @@ end
 
 lualine.setup({
 	options = {
+		theme = "ayu_dark",
 		icons_enabled = true,
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },

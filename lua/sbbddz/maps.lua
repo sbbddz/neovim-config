@@ -13,7 +13,7 @@ end
 keymap.set("n", "<leader>bq", ":w<cr>:bp <BAR> bd #<cr>")
 
 --- [[ FORMAT ]]
-keymap.set("n", "<leader>bf", ":Neoformat<cr>")
+-- keymap.set("n", "<leader>bf", ":Neoformat<cr>")
 keymap.set("n", "<leader>nt", ":Ex<cr>")
 
 --- [[ QUICKFIX ]]

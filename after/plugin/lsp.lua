@@ -10,6 +10,7 @@ local servers = {
 	"pyright",
 	"zls",
 	"ocamllsp",
+	"clangd",
 }
 
 --- [[  MASON && MASONLSP  ]]
@@ -33,18 +34,20 @@ masonlsp.setup({})
 --- [[  LSP KEYMAPS  ]]
 local function lsp_keymaps(bufnr)
 	local map = function(m, lhs, rhs)
-		local opts = {remap = false, silent = true, buffer = bufnr}
+		local opts = { remap = false, silent = true, buffer = bufnr }
 		vim.keymap.set(m, lhs, rhs, opts)
 	end
 
-	map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-	map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-	map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-	map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-	map('n', 'ge', '<cmd>lua vim.lsp.buf.references()<cr>')
-	map('n', 'gr', '<cmd>lua vim.lsp.buf.rename()<cr>')
-	map('n', 'gk', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-	map('n', 'gj', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+	map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+	map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
+	map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
+	map("n", "ge", "<cmd>lua vim.lsp.buf.references()<cr>")
+	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>")
+	map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+	map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+	map("n", "<leader>bf", "<cmd>LspFormat<cr>")
 end
 
 --- [[  LSP CONFIG  ]]
@@ -56,17 +59,22 @@ if not status then
 end
 
 local function on_attach(_, bufnr)
+	local buf_command = vim.api.nvim_buf_create_user_command
+
+	buf_command(bufnr, "LspFormat", function()
+		vim.lsp.buf.format()
+	end, { desc = "Format buffer with language server" })
+
 	lsp_keymaps(bufnr)
 end
 
-local capabilities = require("cmp_nvim_lsp")
-	.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, server in ipairs(servers) do
-	lspconfig[server].setup {
+	lspconfig[server].setup({
 		on_attach = on_attach,
-		capabilities = capabilities
-	}
+		capabilities = capabilities,
+	})
 end
 
 require("lspconfig").sumneko_lua.setup({
@@ -83,4 +91,3 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
-
