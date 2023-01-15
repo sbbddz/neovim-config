@@ -18,7 +18,6 @@ keymap.set("n", "<leader>ff", function()
     hidden = true
   })
 end)
-keymap.set("n", "<C-p>", builtin.buffers, {})
 keymap.set("n", "<C-f>", builtin.git_files, {})
 keymap.set("n", "<leader>fp", builtin.live_grep, {})
 keymap.set("n", "<leader>fb", builtin.current_buffer_fuzzy_find, {})

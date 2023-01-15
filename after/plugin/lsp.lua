@@ -47,7 +47,7 @@ local function lsp_keymaps(bufnr)
 	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 	map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 	map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-	map("n", "<leader>bf", "<cmd>LspFormat<cr>")
+	map("n", "<leader>bf", "<cmd>Neoformat<cr>")
 end
 
 --- [[  LSP CONFIG  ]]

@@ -13,13 +13,12 @@ end
 keymap.set("n", "<leader>bq", ":w<cr>:bp <BAR> bd #<cr>")
 
 --- [[ FORMAT ]]
--- keymap.set("n", "<leader>bf", ":Neoformat<cr>")
 keymap.set("n", "<leader>nt", ":Ex<cr>")
 
 --- [[ QUICKFIX ]]
 keymap.set("n", "<leader>cc", ":cclose<cr>")
-keymap.set("n", "<leader>cn", ":cnext<cr>")
-keymap.set("n", "<leader>cp", ":cprev<cr>")
+keymap.set("n", "<C-n>", ":cnext<cr>")
+keymap.set("n", "<C-p>", ":cprev<cr>")
 
 --- [[ MISCELLANEA ]]
 keymap.set("i", "<C-c>", "<ESC>")
