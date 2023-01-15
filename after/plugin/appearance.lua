@@ -2,13 +2,6 @@
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 
-require("indent_blankline").setup({
-	show_end_of_line = true,
-	space_char_hightlight_list = {
-		"IndentSpaceLine",
-	},
-})
-
 ---- [[  COLORSCHEME  ]]
 vim.g.tokyonight_transparent_sidebar = true
 vim.g.tokyonight_transparent = true

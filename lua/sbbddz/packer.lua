@@ -31,7 +31,6 @@ return require("packer").startup(function()
 	--- [[  IDE  ]]
 	use("windwp/nvim-autopairs")
 	use("sbdchd/neoformat")
-	use("lukas-reineke/indent-blankline.nvim")
 	use("tpope/vim-sleuth")
 	use({
 		"nvim-treesitter/nvim-treesitter",
