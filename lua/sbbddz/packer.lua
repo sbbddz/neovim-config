@@ -50,8 +50,8 @@ return require("packer").startup(function()
 	use("svrana/neosolarized.nvim")
 	use("navarasu/onedark.nvim")
 	use("folke/tokyonight.nvim")
+	use("https://gitlab.com/__tpb/monokai-pro.nvim")
 
 	--- [[  OTHER LANGUAGES  ]]
 	use("lervag/vimtex")
-	use("baabelfish/nvim-nim")
 end)

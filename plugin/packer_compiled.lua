@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["monokai-pro.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/monokai-pro.nvim",
+    url = "https://gitlab.com/__tpb/monokai-pro.nvim"
+  },
   neoformat = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/neoformat",
@@ -163,11 +168,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-nim"] = {
-    loaded = true,
-    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim-nim",
-    url = "https://github.com/baabelfish/nvim-nim"
   },
   ["nvim-treesitter"] = {
     loaded = true,
