@@ -9,6 +9,7 @@ return require("packer").startup(function()
 	--- [[  MISCELLANEA  ]]
 	use("wbthomason/packer.nvim")
 	use("lewis6991/impatient.nvim")
+	use("willothy/flatten.nvim")
 
 	--- [[  PLENARY  ]]
 	use("nvim-lua/plenary.nvim")
@@ -51,6 +52,7 @@ return require("packer").startup(function()
 	use("navarasu/onedark.nvim")
 	use("folke/tokyonight.nvim")
 	use("https://gitlab.com/__tpb/monokai-pro.nvim")
+	use("Shatur/neovim-ayu")
 
 	--- [[  OTHER LANGUAGES  ]]
 	use("lervag/vimtex")

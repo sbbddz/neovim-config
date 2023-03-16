@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  ["flatten.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/flatten.nvim",
+    url = "https://github.com/willothy/flatten.nvim"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -143,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/neosolarized.nvim",
     url = "https://github.com/svrana/neosolarized.nvim"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["nightfox.nvim"] = {
     loaded = true,
