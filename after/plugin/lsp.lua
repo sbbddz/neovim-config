@@ -11,6 +11,7 @@ local servers = {
 	"zls",
 	"ocamllsp",
 	"clangd",
+	"prismals",
 }
 
 --- [[  MASON && MASONLSP  ]]
@@ -90,4 +91,14 @@ require("lspconfig").lua_ls.setup({
 			},
 		},
 	},
+})
+
+require("lspconfig").solargraph.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		solargraph = {
+			diagnostics = true,
+		}
+	}
 })
