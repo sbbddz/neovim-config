@@ -22,15 +22,7 @@ if not status then
 	return
 end
 
-local status, masonlsp = pcall(require, "mason-lspconfig")
-
-if not status then
-	print("[WARN] mason-lspconfig is not installed and its required to install language servers")
-	return
-end
-
 mason.setup({})
-masonlsp.setup({})
 
 --- [[  LSP KEYMAPS  ]]
 local function lsp_keymaps(bufnr)
@@ -48,7 +40,7 @@ local function lsp_keymaps(bufnr)
 	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 	map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 	map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-	map("n", "<leader>bf", "<cmd>Neoformat<cr>")
+	map("n", "<leader>bf", "<cmd>Format<cr>")
 end
 
 --- [[  LSP CONFIG  ]]
@@ -99,6 +91,6 @@ require("lspconfig").solargraph.setup({
 	settings = {
 		solargraph = {
 			diagnostics = true,
-		}
-	}
+		},
+	},
 })

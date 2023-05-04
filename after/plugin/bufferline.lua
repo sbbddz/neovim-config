@@ -53,7 +53,7 @@ bfline.setup({
 		{ text = " " },
 		{
 			text = function(buffer)
-				return buffer.is_modified and "●" or ""
+				return buffer.is_modified and "●" or "x"
 			end,
 			fg = function(buffer)
 				return buffer.is_modified and green or nil

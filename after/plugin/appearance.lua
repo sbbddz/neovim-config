@@ -1,18 +1,11 @@
 ---- [[  COLORSCHEME  ]]
-vim.g.tokyonight_transparent_sidebar = true
-vim.g.tokyonight_transparent = true
-vim.g.catppuccin_flavour = "macchiato"
+local colorscheme = "ayu"
 
-vim.cmd([[colorscheme ayu-dark]])
-
--- vim.cmd([[colorscheme monokaipro]])
--- vim.g.monokaipro_filter = "spectrum"
-
---[[ require("tokyonight").setup({
-	style = "night",
-	transparent = true
-}) ]]
---
+if colorscheme == "ayu" then
+	vim.cmd([[colorscheme ayu-dark]])
+elseif colorscheme == "nightfox" then
+	vim.cmd([[colorscheme carboxfox]])
+end
 
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")

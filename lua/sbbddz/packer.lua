@@ -10,16 +10,11 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 	use("lewis6991/impatient.nvim")
 	use("willothy/flatten.nvim")
-
-	--- [[  PLENARY  ]]
 	use("nvim-lua/plenary.nvim")
-
-	--- [[  TELESCOPE  ]]
 	use("nvim-telescope/telescope.nvim")
 
 	--- [[  LSP  ]]
 	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
@@ -28,11 +23,10 @@ return require("packer").startup(function()
 	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
+	use("mhartington/formatter.nvim")
 
 	--- [[  IDE  ]]
 	use("windwp/nvim-autopairs")
-	use("sbdchd/neoformat")
-	use("tpope/vim-sleuth")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -47,11 +41,6 @@ return require("packer").startup(function()
 
 	--- [[  COLORSCHEMES  ]]
 	use("EdenEast/nightfox.nvim")
-	use("tjdevries/colorbuddy.nvim")
-	use("svrana/neosolarized.nvim")
-	use("navarasu/onedark.nvim")
-	use("folke/tokyonight.nvim")
-	use("https://gitlab.com/__tpb/monokai-pro.nvim")
 	use("Shatur/neovim-ayu")
 
 	--- [[  OTHER LANGUAGES  ]]
