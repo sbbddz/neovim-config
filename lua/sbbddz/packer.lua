@@ -8,7 +8,6 @@ end
 return require("packer").startup(function()
 	--- [[  MISCELLANEA  ]]
 	use("wbthomason/packer.nvim")
-	use("lewis6991/impatient.nvim")
 	use("willothy/flatten.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim")

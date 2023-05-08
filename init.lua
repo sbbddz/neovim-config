@@ -1,5 +1,5 @@
 --- [[  IMPATIENT FIRST  ]]
-pcall(require, "impatient")
+vim.loader.enable()
 
 --- [[  EARLY MAPS  ]]
 vim.g.mapleader = " "

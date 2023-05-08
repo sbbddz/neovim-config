@@ -4,6 +4,9 @@ local formatter_config = {
 	lua = {
 		require("formatter.filetypes.lua").stylua,
 	},
+	python = {
+		require("formatter.filetypes.python").autopep8,
+	},
 }
 
 local prettier_config = function()
