@@ -22,7 +22,15 @@ if not status then
 	return
 end
 
+local status, masonlsp = pcall(require, "mason-lspconfig")
+
+if not status then
+	print("[WARN] mason is not installed and its required to install language servers")
+	return
+end
+
 mason.setup({})
+masonlsp.setup({})
 
 --- [[  LSP KEYMAPS  ]]
 local function lsp_keymaps(bufnr)
@@ -93,4 +101,23 @@ require("lspconfig").solargraph.setup({
 			diagnostics = true,
 		},
 	},
+})
+
+require("lspconfig").omnisharp.setup({
+	handlers = {
+		["textDocument/definition"] = require("omnisharp_extended").handler,
+	},
+	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr)
+		local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+		for i, v in ipairs(tokenModifiers) do
+			tokenModifiers[i] = v:gsub(" ", "_")
+		end
+		local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+		for i, v in ipairs(tokenTypes) do
+			tokenTypes[i] = v:gsub(" ", "_")
+		end
+	end,
+	capabilities = capabilities,
 })

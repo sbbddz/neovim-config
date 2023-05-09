@@ -14,6 +14,7 @@ return require("packer").startup(function()
 
 	--- [[  LSP  ]]
 	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
@@ -22,7 +23,6 @@ return require("packer").startup(function()
 	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
-	use("mhartington/formatter.nvim")
 
 	--- [[  IDE  ]]
 	use("windwp/nvim-autopairs")
@@ -30,9 +30,9 @@ return require("packer").startup(function()
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("mhartington/formatter.nvim")
 
-	--- [[  LUALINE && BUFFERLINE  ]]
-	use("hoob3rt/lualine.nvim")
+	--- [[  BUFFERLINE  ]]
 	use({
 		"sbbddz/nvim-cokeline",
 		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
@@ -44,4 +44,5 @@ return require("packer").startup(function()
 
 	--- [[  OTHER LANGUAGES  ]]
 	use("lervag/vimtex")
+	use("Hoffs/omnisharp-extended-lsp.nvim")
 end)

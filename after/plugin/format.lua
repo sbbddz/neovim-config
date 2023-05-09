@@ -7,6 +7,12 @@ local formatter_config = {
 	python = {
 		require("formatter.filetypes.python").autopep8,
 	},
+	ruby = {
+		require("formatter.filetypes.ruby").rubocop,
+	},
+	cs = {
+		require("formatter.filetypes.cs").csharpier
+	}
 }
 
 local prettier_config = function()
