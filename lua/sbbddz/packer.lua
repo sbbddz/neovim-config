@@ -31,6 +31,7 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 	use("mhartington/formatter.nvim")
+	use("mfussenegger/nvim-dap")
 
 	--- [[  BUFFERLINE  ]]
 	use({

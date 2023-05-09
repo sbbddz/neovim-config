@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  moonfly = {
-    loaded = true,
-    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/moonfly",
-    url = "https://github.com/bluz71/vim-moonfly-colors"
-  },
   ["neovim-ayu"] = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/neovim-ayu",
@@ -153,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim-cokeline",
     url = "https://github.com/sbbddz/nvim-cokeline"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
