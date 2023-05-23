@@ -12,6 +12,8 @@ local servers = {
 	"ocamllsp",
 	"clangd",
 	"prismals",
+	"intelephense",
+	"emmet_ls",
 }
 
 --- [[  MASON && MASONLSP  ]]
@@ -120,4 +122,24 @@ require("lspconfig").omnisharp.setup({
 		end
 	end,
 	capabilities = capabilities,
+})
+
+require("lspconfig").emmet_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"svelte",
+		"pug",
+		"typescriptreact",
+		"vue",
+		"php",
+	},
 })

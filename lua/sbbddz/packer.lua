@@ -40,7 +40,6 @@ return require("packer").startup(function()
 	})
 
 	--- [[  COLORSCHEMES  ]]
-	use("EdenEast/nightfox.nvim")
 	use("Shatur/neovim-ayu")
 
 	--- [[  OTHER LANGUAGES  ]]

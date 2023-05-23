@@ -11,8 +11,17 @@ local formatter_config = {
 		require("formatter.filetypes.ruby").rubocop,
 	},
 	cs = {
-		require("formatter.filetypes.cs").csharpier
-	}
+		require("formatter.filetypes.cs").csharpier,
+	},
+	php = {
+		require("formatter.filetypes.html").prettier,
+	},
+	html = {
+		require("formatter.filetypes.html").prettier,
+	},
+	css = {
+		require("formatter.filetypes.css").prettier,
+	},
 }
 
 local prettier_config = function()
