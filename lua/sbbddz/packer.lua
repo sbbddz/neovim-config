@@ -41,6 +41,7 @@ return require("packer").startup(function()
 
 	--- [[  COLORSCHEMES  ]]
 	use("Shatur/neovim-ayu")
+	use("rebelot/kanagawa.nvim")
 
 	--- [[  OTHER LANGUAGES  ]]
 	use("lervag/vimtex")

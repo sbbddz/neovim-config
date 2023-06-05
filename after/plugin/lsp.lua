@@ -12,8 +12,6 @@ local servers = {
 	"ocamllsp",
 	"clangd",
 	"prismals",
-	"intelephense",
-	"emmet_ls",
 }
 
 --- [[  MASON && MASONLSP  ]]
