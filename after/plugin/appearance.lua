@@ -5,7 +5,7 @@ require("kanagawa").setup({
 			fujiWhite = "#e4e4e4",
 		},
 	},
-	overrides = function(colors)
+	overrides = function(_)
 		local kana = require("kanagawa.colors").setup({ theme = "dragon" })
 		local theme = kana.theme
 		return {

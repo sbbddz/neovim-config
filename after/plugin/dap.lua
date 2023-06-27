@@ -29,15 +29,15 @@ dap.configurations.cs = {
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>bbb", function()
+keymap.set("n", "<leader>bp", function()
 	dap.toggle_breakpoint()
 end, {})
-keymap.set("n", "<leader>bbc", function()
+keymap.set("n", "<leader>bc", function()
 	dap.continue()
 end, {})
-keymap.set("n", "<leader>bbr", function()
+keymap.set("n", "<leader>br", function()
 	require("dap.repl").toggle()
 end, {})
-keymap.set("n", "<leader>bbs", function()
+keymap.set("n", "<leader>bs", function()
 	dap.terminate()
 end, {})
