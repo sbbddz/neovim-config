@@ -11,6 +11,7 @@ else
 end
 
 keymap.set("n", "<leader>bq", ":w<cr>:bp <BAR> bd #<cr>")
+keymap.set("n", "<leader>bb", "<C-o>")
 
 --- [[ FORMAT ]]
 keymap.set("n", "<leader>nt", ":Ex<cr>")
