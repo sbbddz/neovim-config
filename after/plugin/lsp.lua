@@ -1,6 +1,6 @@
 --- [[  GLOBALS  ]]
 local servers = {
-	"tailwindCSS",
+	"tailwindcss",
 	"tsserver",
 	"rust_analyzer",
 	"cssls",
@@ -9,9 +9,6 @@ local servers = {
 	"eslint",
 	"pyright",
 	"zls",
-	"ocamllsp",
-	"clangd",
-	"prismals",
 }
 
 --- [[  MASON && MASONLSP  ]]
@@ -93,16 +90,6 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
-require("lspconfig").solargraph.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		solargraph = {
-			diagnostics = true,
-		},
-	},
-})
-
 require("lspconfig").omnisharp.setup({
 	handlers = {
 		["textDocument/definition"] = require("omnisharp_extended").handler,
@@ -120,24 +107,4 @@ require("lspconfig").omnisharp.setup({
 		end
 	end,
 	capabilities = capabilities,
-})
-
-require("lspconfig").emmet_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = {
-		"css",
-		"eruby",
-		"html",
-		"javascript",
-		"javascriptreact",
-		"less",
-		"sass",
-		"scss",
-		"svelte",
-		"pug",
-		"typescriptreact",
-		"vue",
-		"php",
-	},
 })
