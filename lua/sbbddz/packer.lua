@@ -33,14 +33,9 @@ return require("packer").startup(function()
 	use("mhartington/formatter.nvim")
 	use("mfussenegger/nvim-dap")
 
-	--- [[  BUFFERLINE  ]]
-	use({
-		"sbbddz/nvim-cokeline",
-		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
-	})
-
-	--- [[  COLORSCHEMES  ]]
+	--- [[  APPEARANCE  ]]
 	use("Shatur/neovim-ayu")
+	use("kyazdani42/nvim-web-devicons")
 	use("rebelot/kanagawa.nvim")
 
 	--- [[  OTHER LANGUAGES  ]]

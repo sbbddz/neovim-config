@@ -27,7 +27,6 @@ vim.opt.backup = false
 vim.opt.hidden = true
 vim.opt.cmdheight = 2
 vim.opt.updatetime = 300
-vim.opt.showtabline = 2
 
 vim.opt.signcolumn = 'number'
 
