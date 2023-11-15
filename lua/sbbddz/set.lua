@@ -29,6 +29,7 @@ vim.opt.cmdheight = 2
 vim.opt.updatetime = 300
 
 vim.opt.signcolumn = 'number'
+vim.opt.showtabline = 0
 
 vim.opt.termguicolors = true
 

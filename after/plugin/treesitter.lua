@@ -7,11 +7,6 @@ if not status then
 end
 
 treesitter.setup({
-	indent = { enable = true },
-	highlight = { enable = true },
-	incremental_selection = { enable = true },
-	textobjects = { enable = true },
-	autotag = { enable = true },
 	ensure_installed = {
 		"tsx",
 		"lua",
@@ -20,5 +15,10 @@ treesitter.setup({
 		"css",
 		"json",
 		"rust",
+		"markdown",
 	},
+	indent = { enable = true },
+	auto_install = true,
+	highlight = { enable = true },
+	incremental_selection = { enable = true },
 })

@@ -22,6 +22,9 @@ local formatter_config = {
 	css = {
 		require("formatter.filetypes.css").prettier,
 	},
+	rust = {
+		require("formatter.filetypes.rust").rustfmt,
+	},
 }
 
 local prettier_config = function()
