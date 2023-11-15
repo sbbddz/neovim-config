@@ -33,7 +33,7 @@ return require("lazy").setup({
 	--- [[  IDE  ]]
 	{ "windwp/nvim-autopairs" },
 	{ "nvim-treesitter/nvim-treesitter" },
-	{ "mhartington/formatter.nvim" },
+	{ "sbbddz/formatter.nvim" },
 	{ "mfussenegger/nvim-dap" },
 	--- [[  APPEARANCE  ]]
 	{ "Shatur/neovim-ayu" },
