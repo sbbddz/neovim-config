@@ -9,6 +9,8 @@ local servers = {
 	"eslint",
 	"pyright",
 	"zls",
+	"omnisharp",
+	"lua_ls"
 }
 
 --- [[  MASON && MASONLSP  ]]
@@ -27,7 +29,9 @@ if not status then
 end
 
 mason.setup({})
-masonlsp.setup({})
+masonlsp.setup({
+	ensure_installed = servers
+})
 
 --- [[  LSP KEYMAPS  ]]
 local function lsp_keymaps(bufnr)
