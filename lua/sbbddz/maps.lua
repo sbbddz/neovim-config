@@ -1,12 +1,12 @@
 local keymap = vim.keymap
 
---- [[ BUFFERS ]]
-keymap.set("n", "<Tab>", ":bnext<cr>")
-keymap.set("n", "<S-Tab>", ":bprevious<cr>")
+--- [[ FAST AS LIGHT ]]
+keymap.set("n", "<Tab>", "<C-i>")
+keymap.set("n", "<S-Tab>", "<C-o>")
 
+--- [[ BUFFERS ]]
 keymap.set("n", "<leader>bq", ":w<cr>:bp <BAR> bd #<cr>")
 keymap.set("n", "<leader>bd", ":bd<cr>")
-keymap.set("n", "<leader>bb", "<C-o>")
 
 --- [[ NETRW ]]
 keymap.set("n", "<leader>nt", ":Ex<cr>")
