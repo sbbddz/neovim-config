@@ -32,3 +32,6 @@ vim.opt.smartindent = true
 
 -- fix: asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
+
+vim.opt.undofile = true
+vim.opt.undodir = "~/.vim/tmp/undo//"
