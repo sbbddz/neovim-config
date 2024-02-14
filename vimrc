@@ -3,6 +3,11 @@ if has('nvim')
 	finish
 endif
 
+if has('win32')
+  " https://github.com/junegunn/vim-plug/issues/852#issuecomment-696431055
+  set shell=cmd.exe
+endif
+
 " auto-install plug in case is needed
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -33,8 +38,8 @@ set relativenumber
 set showtabline=0
 set termguicolors
 
-set visualbell
-set errorbells
+set novisualbell
+set noerrorbells
 set mouse=a
 set scrolloff=8
 set nowrap
@@ -83,7 +88,7 @@ nnoremap <C-p> :cprev<cr>
 
 " misc
 inoremap <C-c> <ESC>
-tnoremap <Esc> <C-W>N
+" tnoremap <ESC> <C-\\><C-n>
 nnoremap <leader>tt :terminal<cr>
 nnoremap <leader>vs :vs<cr>
 

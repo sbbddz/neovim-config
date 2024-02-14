@@ -8,7 +8,7 @@ vim.opt.relativenumber = true
 vim.opt.showtabline = 0
 vim.opt.termguicolors = true
 
-vim.opt.visualbell = true
+vim.opt.visualbell = false
 vim.opt.errorbells = false
 vim.opt.mouse = 'a'
 vim.opt.scrolloff = 8
