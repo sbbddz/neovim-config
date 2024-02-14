@@ -34,4 +34,4 @@ vim.opt.smartindent = true
 vim.opt.formatoptions:append { 'r' }
 
 vim.opt.undofile = true
-vim.opt.undodir = "~/.vim/tmp/undo//"
+vim.opt.undodir = "$HOME/vim/tmp/undo//"
