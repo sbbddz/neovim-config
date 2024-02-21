@@ -16,32 +16,32 @@ vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
 	--- [[  MISCELLANEA  ]]
-	{ "willothy/flatten.nvim" },
-	{ "nvim-lua/plenary.nvim" },
-	{ "nvim-telescope/telescope.nvim" },
+	{ "willothy/flatten.nvim" },									-- Opens files from vim terminal inside current vim session
+	{ "nvim-lua/plenary.nvim" },									-- Required for telescope, lua utils functions
+	{ "nvim-telescope/telescope.nvim" },							-- Fzf but its better
 	--- [[  LSP  ]]
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
-	{ "neovim/nvim-lspconfig" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
-	{ "hrsh7th/nvim-cmp" },
-	{ "L3MON4D3/LuaSnip" },
-	{ "saadparwaiz1/cmp_luasnip" },
+	{ "williamboman/mason.nvim" },									--
+	{ "williamboman/mason-lspconfig.nvim" },						-- This two plugins makes working with lsp really nice
+	{ "neovim/nvim-lspconfig" },									-- LSP config
+	{ "hrsh7th/cmp-nvim-lsp" },										--
+	{ "hrsh7th/cmp-buffer" },										--
+	{ "hrsh7th/cmp-path" },											--
+	{ "hrsh7th/cmp-cmdline" },										--
+	{ "hrsh7th/nvim-cmp" },											-- NVIM cmp, makes nvim completion feel really great
+	{ "L3MON4D3/LuaSnip" },											--
+	{ "saadparwaiz1/cmp_luasnip" },									--
 	--- [[  IDE  ]]
-	{ "windwp/nvim-autopairs" },
-	{ "nvim-treesitter/nvim-treesitter" },
-	{ "sbbddz/formatter.nvim" },
-	{ "mfussenegger/nvim-dap" },
+	{ "windwp/nvim-autopairs" },									-- Auto close parens and brackets
+	{ "nvim-treesitter/nvim-treesitter" },							-- Really nice syntax, identation, an other things per language
+	{ "sbbddz/formatter.nvim" },									-- I don't know how to work with lsp formatters, so this works OK
+	{ "mfussenegger/nvim-dap" },									-- For debugging, I don't use it too much, only with dotnet
 	--- [[  APPEARANCE  ]]
-	{ "Shatur/neovim-ayu" },
-	{ "kyazdani42/nvim-web-devicons" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "Shatur/neovim-ayu" },										-- I like ayu
+	{ "kyazdani42/nvim-web-devicons" },								-- I like to see nice icons in telescope
+	{ "rebelot/kanagawa.nvim" },									-- I really like this colorscheme
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },	-- This is a very nice colorscheme alse
 	--- [[  OTHER LANGUAGES  ]]
-	{ "Hoffs/omnisharp-extended-lsp.nvim" },
+	{ "Hoffs/omnisharp-extended-lsp.nvim" },						-- I want to see the definition and implementation of decompiled sources in c#
 }, {
 	ui = {
 		size = {

@@ -32,10 +32,10 @@ function M.open_or_create_term_buffer()
 
 	-- I don't know how to split a window with lua commands
 	if buf == nil then
-		vim.cmd(":7split")
+		vim.cmd(":8split")
 		vim.cmd(":term")
 	else
-		vim.cmd(string.format(":7split #%s", buf))
+		vim.cmd(string.format(":8split #%s", buf))
 	end
 end
 
