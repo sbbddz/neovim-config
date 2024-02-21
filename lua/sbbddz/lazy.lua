@@ -41,7 +41,6 @@ return require("lazy").setup({
 	{ "rebelot/kanagawa.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	--- [[  OTHER LANGUAGES  ]]
-	{ "lervag/vimtex" },
 	{ "Hoffs/omnisharp-extended-lsp.nvim" },
 }, {
 	ui = {
