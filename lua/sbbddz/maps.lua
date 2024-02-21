@@ -19,6 +19,6 @@ keymap.set("n", "<C-p>", ":cprev<cr>")
 --- [[ MISCELLANEA ]]
 keymap.set("i", "<C-c>", "<ESC>")
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
-keymap.set("n", "<leader>tt", ":terminal<cr>")
-keymap.set("n", "<leader>st", ":split<cr> :terminal<cr>")
+keymap.set("n", "<leader>tt", require("sbbddz.custom").open_or_create_term_buffer)
+keymap.set("n", "<leader>ss", ":split<cr>")
 keymap.set("n", "<leader>vs", ":vs<cr>")

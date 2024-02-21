@@ -8,3 +8,4 @@ vim.g.mapleader = " "
 require("sbbddz.set")
 require("sbbddz.maps")
 require("sbbddz.lazy")
+require("sbbddz.custom")
