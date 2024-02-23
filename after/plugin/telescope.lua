@@ -20,7 +20,11 @@ keymap.set("n", "<leader>ff", function()
 end)
 keymap.set("n", "<C-e>", builtin.buffers, {})
 keymap.set("n", "<leader>fp", builtin.live_grep, {})
-keymap.set("n", "<leader>fb", builtin.current_buffer_fuzzy_find, {})
+keymap.set("n", "<leader>fb", function()
+	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		previewer = false,
+	}))
+end, {})
 keymap.set("n", "<leader>fg", builtin.git_files, {})
 keymap.set("n", "<leader>fc", builtin.command_history, {})
 keymap.set("n", "<leader>fh", builtin.help_tags, {})

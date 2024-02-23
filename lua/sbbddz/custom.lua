@@ -16,14 +16,15 @@ local function get_term_buffer_if_exists()
 end
 
 ---
----Opens or creates a new terminal if required. If called from an existing terminal,
----closes the window
+---Toggles the terminal. If there is no terminal buffer, creates one.
+---If there is a window with a terminal open, closes it.
 ---
 function M.open_or_create_term_buffer()
 	local buf = get_term_buffer_if_exists()
 	local current_tabpage = vim.api.nvim_get_current_tabpage()
 	local current_number_of_splits = vim.api.nvim_tabpage_list_wins(current_tabpage)
 
+	-- Close the terminal even from other windows
 	for _, w in ipairs(current_number_of_splits) do
 		if vim.api.nvim_win_get_buf(w) == buf then
 			vim.api.nvim_win_close(w, true)

@@ -33,4 +33,8 @@ vim.opt.smartindent = true
 -- fix: asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 
+-- show characters in vim
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
 vim.opt.undofile = true
