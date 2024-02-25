@@ -40,6 +40,7 @@ return require("lazy").setup({
 	{ "kyazdani42/nvim-web-devicons" }, -- I like to see nice icons in telescope
 	{ "rebelot/kanagawa.nvim" }, -- I really like this colorscheme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- This is a very nice colorscheme alse
+	{ "tpope/vim-vividchalk" },
 	--- [[  OTHER LANGUAGES  ]]
 	{ "Hoffs/omnisharp-extended-lsp.nvim" }, -- I want to see the definition and implementation of decompiled sources in c#
 }, {
