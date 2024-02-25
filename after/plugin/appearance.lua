@@ -23,7 +23,7 @@ require("catppuccin").setup({
 			mauve = "#ffdd33",
 			peach = "#96a6c8",
 			yellow = "#88b992",
-			green = "#73c936",
+			green = "#abd37a",
 			teal = "#88b992",
 			sky = "#cc8c3c",
 			sapphire = "#96a6c8",

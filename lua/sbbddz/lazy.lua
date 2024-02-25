@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
 	--- [[  MISCELLANEA  ]]
-	{ "willothy/flatten.nvim" }, -- Opens files from vim terminal inside current vim session
+	{ "willothy/flatten.nvim", opts = {} }, -- Opens files from vim terminal inside current vim session
 	{ "nvim-lua/plenary.nvim" }, -- Required for telescope, lua utils functions
 	{ "nvim-telescope/telescope.nvim" }, -- Fzf but its better
 	--- [[  LSP  ]]
@@ -31,7 +31,7 @@ return require("lazy").setup({
 	{ "L3MON4D3/LuaSnip" }, --
 	{ "saadparwaiz1/cmp_luasnip" }, --
 	--- [[  IDE  ]]
-	{ "windwp/nvim-autopairs" }, -- Auto close parens and brackets
+	{ "windwp/nvim-autopairs", opts = {} }, -- Auto close parens and brackets
 	{ "nvim-treesitter/nvim-treesitter" }, -- Really nice syntax, identation, an other things per language
 	{ "sbbddz/formatter.nvim" }, -- I don't know how to work with lsp formatters, so this works OK
 	{ "mfussenegger/nvim-dap" }, -- For debugging, I don't use it too much, only with dotnet

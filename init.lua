@@ -3,6 +3,7 @@ vim.loader.enable()
 
 --- [[  EARLY MAPS  ]]
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 --- [[  BASICS && PLUGINS && KEYMAPS  ]]
 require("sbbddz.set")
