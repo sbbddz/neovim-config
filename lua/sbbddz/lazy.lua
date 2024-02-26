@@ -35,6 +35,7 @@ return require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter" }, -- Really nice syntax, identation, an other things per language
 	{ "sbbddz/formatter.nvim" }, -- I don't know how to work with lsp formatters, so this works OK
 	{ "mfussenegger/nvim-dap" }, -- For debugging, I don't use it too much, only with dotnet
+	{ "tpope/vim-sleuth" }, -- Stop worrying about tabs, spaces, etc
 	--- [[  APPEARANCE  ]]
 	{ "Shatur/neovim-ayu" }, -- I like ayu
 	{ "kyazdani42/nvim-web-devicons" }, -- I like to see nice icons in telescope
