@@ -23,6 +23,7 @@ vim.opt.hidden = true
 vim.opt.cmdheight = 2
 vim.opt.updatetime = 50
 vim.opt.signcolumn = "number"
+vim.opt.iskeyword:remove("_") -- don't treat _ as part of the word (will try)
 
 -- default, acutally handled by vim-sleuth
 vim.opt.tabstop = 4
