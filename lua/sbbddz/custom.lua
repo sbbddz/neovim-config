@@ -47,4 +47,26 @@ function M.open_or_create_term_buffer()
 	end
 end
 
+---
+---Toggles the current window as a full screen window.
+---In behind, it just creates a new tab and destroys it when you're not in main tab
+---This would not work if using tabs, for example, creating it manually, but
+---I don't use tabs, so its OK
+---
+function M.toggle_window_fullscreen()
+	local current_tabpage = vim.api.nvim_get_current_tabpage()
+	local current_number_of_splits = vim.api.nvim_tabpage_list_wins(current_tabpage)
+
+	-- Do not create a tab when unexpectedly issued the command
+	if #current_number_of_splits <= 1 and current_tabpage == 1 then
+		return
+	end
+
+	if current_tabpage ~= 1 then
+		vim.cmd(":tabclose")
+	else
+		vim.cmd(":tabnew %")
+	end
+end
+
 return M
