@@ -26,7 +26,7 @@ function M.open_or_create_term_buffer()
 
 	-- Close the terminal even from other windows
 	for _, w in ipairs(current_number_of_splits) do
-		if vim.api.nvim_win_get_buf(w) == buf then
+		if vim.api.nvim_win_get_buf(w) == buf and #current_number_of_splits > 1 then
 			vim.api.nvim_win_close(w, true)
 			return
 		end
@@ -66,6 +66,16 @@ function M.toggle_window_fullscreen()
 		vim.cmd(":tabclose")
 	else
 		vim.cmd(":tabnew %")
+	end
+end
+
+function M.toggle_term_in_current_window()
+	local term_buf = get_term_buffer_if_exists();
+
+	if term_buf ~= nil then
+		vim.api.nvim_set_current_buf(term_buf)
+	else
+		vim.cmd(":term")
 	end
 end
 

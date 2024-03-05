@@ -26,4 +26,5 @@ keymap.set("n", "<C-p>", ":cprev<cr>")
 --- [[ MISCELLANEA ]]
 keymap.set("i", "<C-c>", "<ESC>")
 keymap.set("n", "<leader>tt", custom.open_or_create_term_buffer)
+keymap.set("n", "<leader>to", custom.toggle_term_in_current_window)
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
