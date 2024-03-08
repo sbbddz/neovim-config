@@ -33,15 +33,13 @@ return require("lazy").setup({
 	--- [[  IDE  ]]
 	{ "windwp/nvim-autopairs", opts = {} }, -- Auto close parens and brackets
 	{ "nvim-treesitter/nvim-treesitter" }, -- Really nice syntax, identation, an other things per language
-	{ "sbbddz/formatter.nvim" }, -- I don't know how to work with lsp formatters, so this works OK
+	{ "mhartington/formatter.nvim" }, -- I don't know how to work with lsp formatters, so this works OK
 	{ "mfussenegger/nvim-dap" }, -- For debugging, I don't use it too much, only with dotnet
 	{ "tpope/vim-sleuth" }, -- Stop worrying about tabs, spaces, etc
 	--- [[  APPEARANCE  ]]
-	{ "Shatur/neovim-ayu" }, -- I like ayu
 	{ "kyazdani42/nvim-web-devicons" }, -- I like to see nice icons in telescope
 	{ "rebelot/kanagawa.nvim" }, -- I really like this colorscheme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- This is a very nice colorscheme alse
-	{ "tpope/vim-vividchalk" },
 	--- [[  OTHER LANGUAGES  ]]
 	{ "Hoffs/omnisharp-extended-lsp.nvim" }, -- I want to see the definition and implementation of decompiled sources in c#
 }, {
