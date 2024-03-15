@@ -96,7 +96,9 @@ require("lspconfig").lua_ls.setup({
 
 require("lspconfig").omnisharp.setup({
 	handlers = {
-		["textDocument/definition"] = require("omnisharp_extended").handler,
+		["textDocument/definition"] = require("omnisharp_extended").definition_handler,
+		["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
+		["textDocument/references"] = require("omnisharp_extended").references_handler,
 	},
 	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
 	on_attach = function(client, bufnr)
