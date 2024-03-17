@@ -19,6 +19,7 @@ endif
 call plug#begin()
 " appearance
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'drsooch/gruber-darker-vim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " fzf
@@ -93,7 +94,7 @@ nnoremap <leader>tt :terminal<cr>
 nnoremap <leader>vs :vs<cr>
 
 " appearance
-colorscheme catppuccin_mocha
+colorscheme GruberDarker
 hi Normal ctermbg=NONE guibg=NONE
 hi LineNr ctermbg=NONE guibg=NONE
 
