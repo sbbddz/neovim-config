@@ -12,6 +12,9 @@ vim.cmd([[
 -- Load snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
+-- Work stuff
+require("cmp").register_source("jira", require("sbbddz.jira"))
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -35,6 +38,7 @@ cmp.setup({
 		{ name = "path", keyword_length = 5 },
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "luasnip", keyword_length = 2 },
+		{ name = "jira", keyword_length = 1 },
 	},
 	formatting = {
 		format = function(entry, item)
