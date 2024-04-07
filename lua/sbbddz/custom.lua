@@ -70,7 +70,16 @@ function M.toggle_window_fullscreen()
 end
 
 function M.toggle_term_in_current_window()
-	local term_buf = get_term_buffer_if_exists();
+	local term_buf = get_term_buffer_if_exists()
+	local current_tabpage = vim.api.nvim_get_current_tabpage()
+	local splits = vim.api.nvim_tabpage_list_wins(current_tabpage)
+
+	-- This means we're in a full screen terminal buff, so we un-toggle the term buff
+	-- and go back to the last edited buffer
+	if #splits == 1 and term_buf == vim.api.nvim_get_current_buf() then
+		vim.cmd(":e #")
+		return
+	end
 
 	if term_buf ~= nil then
 		vim.api.nvim_set_current_buf(term_buf)
