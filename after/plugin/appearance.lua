@@ -57,17 +57,15 @@ require("kanagawa").setup({
 	end,
 })
 
-local function use_colorscheme(colorscheme)
-	vim.cmd.colorscheme(colorscheme)
+vim.api.nvim_create_user_command("Catppuccin", function()
+	vim.cmd.colorscheme("catppuccin")
 	vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 	vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
-end
-
-vim.api.nvim_create_user_command("Catppuccin", function()
-	use_colorscheme("catppuccin")
 end, {})
 vim.api.nvim_create_user_command("Kanagawa", function()
-	use_colorscheme("kanagawa")
+	vim.cmd.colorscheme("kanagawa")
+	vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
+	vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
 end, {})
 
-use_colorscheme("catppuccin")
+vim.cmd("Catppuccin")
