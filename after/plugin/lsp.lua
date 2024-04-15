@@ -1,16 +1,10 @@
 --- [[  GLOBALS  ]]
 local servers = {
-	"tailwindcss",
+	"lua_ls",
 	"tsserver",
 	"rust_analyzer",
-	"cssls",
-	"html",
 	"gopls",
-	"eslint",
-	"pyright",
-	"zls",
 	"omnisharp",
-	"lua_ls"
 }
 
 --- [[  MASON && MASONLSP  ]]
@@ -30,7 +24,7 @@ end
 
 mason.setup({})
 masonlsp.setup({
-	ensure_installed = servers
+	ensure_installed = servers,
 })
 
 --- [[  LSP KEYMAPS  ]]
@@ -49,7 +43,7 @@ local function lsp_keymaps(bufnr)
 	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 	map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 	map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-	map("n", "<leader>bf", "<cmd>Format<cr>")
+	map("n", "<leader>bf", vim.lsp.buf.format)
 end
 
 --- [[  LSP CONFIG  ]]

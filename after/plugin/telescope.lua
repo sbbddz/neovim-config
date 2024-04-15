@@ -1,4 +1,21 @@
---- [[  TELESCOPE  ]]
+---- [[  APPEARANCE  ]]
+local telescope_foreground_color = "#e2e2e2"
+local telescope_background_color = "#191919"
+local telescope_overrides = {
+	TelescopeTitle = { fg = telescope_foreground_color, bold = true },
+	TelescopePromptNormal = { bg = telescope_background_color, fg = telescope_foreground_color },
+	TelescopePromptBorder = { fg = telescope_background_color, bg = telescope_background_color },
+	TelescopeResultsNormal = { fg = telescope_foreground_color, bg = telescope_background_color },
+	TelescopeResultsBorder = { fg = telescope_background_color, bg = telescope_background_color },
+	TelescopePreviewNormal = { bg = telescope_background_color },
+	TelescopePreviewBorder = { bg = telescope_background_color, fg = telescope_background_color },
+}
+
+for hl, col in pairs(telescope_overrides) do
+	vim.api.nvim_set_hl(0, hl, col)
+end
+
+---- [[  CONFIGURATION  ]]
 local keymap = vim.keymap
 
 local status, telescope = pcall(require, "telescope")
