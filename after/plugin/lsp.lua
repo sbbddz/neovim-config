@@ -95,6 +95,16 @@ require("lspconfig").omnisharp.setup({
 		["textDocument/references"] = require("omnisharp_extended").references_handler,
 	},
 	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+	settings = {
+		FormattingOptions = {
+			OrganizeImports = true
+		},
+		RoslynExtensionsOptions = {
+			EnableAnalyuzersSupport = true,
+			EnableImportCompletion = true,
+			AnalyzeOpenDocumentsOnly = true
+		}
+	},
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
 		local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
