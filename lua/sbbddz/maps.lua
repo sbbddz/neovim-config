@@ -24,8 +24,8 @@ keymap.set("n", "<C-n>", ":cnext<cr>")
 keymap.set("n", "<C-p>", ":cprev<cr>")
 
 --- [[ TERMINAL ]]
-keymap.set("n", "<leader>tt", custom.open_or_create_term_buffer)
-keymap.set("n", "<C-t>", custom.toggle_term_in_current_window)
+keymap.set("n", "<C-t>", custom.open_or_create_term_buffer, { noremap = true })
+keymap.set("n", "<leader>t", custom.toggle_term_in_current_window, { noremap = true })
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 --- [[ MISCELLANEA ]]
