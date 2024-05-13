@@ -100,7 +100,7 @@ require("lspconfig").omnisharp.setup({
 			OrganizeImports = true
 		},
 		RoslynExtensionsOptions = {
-			EnableAnalyuzersSupport = true,
+			EnableAnalyzersSupport = true,
 			EnableImportCompletion = true,
 			AnalyzeOpenDocumentsOnly = true
 		}
