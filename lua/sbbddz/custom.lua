@@ -2,7 +2,7 @@
 local M = {}
 
 local function is_terminal_buffer(buf)
-	return string.match(vim.api.nvim_buf_get_name(buf), "term")
+	return string.match(vim.api.nvim_buf_get_name(buf), "term://")
 end
 
 local function get_term_buffer_if_exists()

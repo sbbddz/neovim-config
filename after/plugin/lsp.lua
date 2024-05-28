@@ -5,6 +5,7 @@ local servers = {
 	"rust_analyzer",
 	"gopls",
 	"omnisharp",
+	"tailwindcss"
 }
 
 --- [[  MASON && MASONLSP  ]]

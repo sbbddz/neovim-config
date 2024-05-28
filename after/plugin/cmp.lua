@@ -12,9 +12,6 @@ vim.cmd([[
 -- Load snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- Work stuff
-require("cmp").register_source("jira", require("sbbddz.jira"))
-
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -22,23 +19,16 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-		["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
-		["<C-n>"] = cmp.mapping.select_next_item(select_opts),
-		["<C-e>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "path", keyword_length = 5 },
-		{ name = "buffer", keyword_length = 5 },
+		{ name = "path",    keyword_length = 5 },
+		{ name = "buffer",  keyword_length = 5 },
 		{ name = "luasnip", keyword_length = 2 },
-		{ name = "jira", keyword_length = 1 },
+		{ name = "jira",    keyword_length = 1 },
 	},
 	formatting = {
 		format = function(entry, item)

@@ -33,6 +33,8 @@ vim.opt.smartindent = true
 
 -- fix: asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
+-- fix: no comments when using o
+vim.opt.formatoptions:remove({ "o" })
 
 -- show characters in vim
 vim.opt.list = true
