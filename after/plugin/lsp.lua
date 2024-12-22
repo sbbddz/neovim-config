@@ -1,13 +1,14 @@
 --- [[  GLOBALS  ]]
 local servers = {
 	"lua_ls",
-	"tsserver",
+	"ts_ls",
 	"rust_analyzer",
 	"gopls",
 	"templ",
 	"omnisharp",
 	"tailwindcss",
-	"zls"
+	"zls",
+	"denols"
 }
 
 --- [[  MASON && MASONLSP  ]]
@@ -76,7 +77,7 @@ for _, server in ipairs(servers) do
 	})
 end
 
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -91,7 +92,20 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
-require("lspconfig").omnisharp.setup({
+-- Fix conflicting denols and tsserver
+lspconfig.ts_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = lspconfig.util.root_pattern("package.json"),
+	single_file_support = false,
+})
+lspconfig.denols.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+lspconfig.omnisharp.setup({
 	handlers = {
 		["textDocument/definition"] = require("omnisharp_extended").definition_handler,
 		["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,

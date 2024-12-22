@@ -19,16 +19,17 @@ return require("lazy").setup({
 	{ "willothy/flatten.nvim", opts = {} }, -- Opens files from vim terminal inside current vim session
 	{ "nvim-lua/plenary.nvim" }, -- Required for telescope, lua utils functions
 	{ "nvim-telescope/telescope.nvim" }, -- Fzf but its better
+	{ 'stevearc/oil.nvim', opts = {}, dependencies = { "nvim-tree/nvim-web-devicons" } },
 	--- [[  LSP  ]]
 	{ "williamboman/mason.nvim" }, --
 	{ "williamboman/mason-lspconfig.nvim" }, -- This two plugins makes working with lsp really nice
 	{ "neovim/nvim-lspconfig" }, -- LSP config
+	{ "hrsh7th/nvim-cmp" }, -- NVIM cmp, makes nvim completion feel really great
 	{ "hrsh7th/cmp-nvim-lsp" }, --
 	{ "hrsh7th/cmp-buffer" }, --
 	{ "hrsh7th/cmp-path" }, --
 	{ "hrsh7th/cmp-cmdline" }, --
-	{ "hrsh7th/nvim-cmp" }, -- NVIM cmp, makes nvim completion feel really great
-	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } }, --
+	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } }, -- SNIPPETS
 	{ "saadparwaiz1/cmp_luasnip" }, --
 	--- [[  IDE  ]]
 	{ "windwp/nvim-autopairs", opts = {} }, -- Auto close parens and brackets
