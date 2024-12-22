@@ -4,8 +4,10 @@ local servers = {
 	"tsserver",
 	"rust_analyzer",
 	"gopls",
+	"templ",
 	"omnisharp",
-	"tailwindcss"
+	"tailwindcss",
+	"zls"
 }
 
 --- [[  MASON && MASONLSP  ]]

@@ -9,4 +9,4 @@ vim.g.maplocalleader = " "
 require("sbbddz.set")
 require("sbbddz.maps")
 require("sbbddz.lazy")
-require("sbbddz.custom")
+require("sbbddz.terminal")
