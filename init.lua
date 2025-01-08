@@ -86,7 +86,11 @@ require("lazy").setup({
 	{ "willothy/flatten.nvim", opts = {} },
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-telescope/telescope.nvim" },
-	{ 'stevearc/oil.nvim', opts = {}, dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{ 'stevearc/oil.nvim', opts = {
+		keymaps = {
+		    ["<C-t>"] = false
+		}
+	}, dependencies = { "nvim-tree/nvim-web-devicons" } },
 	--- LSP
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
