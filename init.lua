@@ -107,6 +107,7 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter" },
 	{ "mfussenegger/nvim-dap" },
 	{ "tpope/vim-sleuth" },
+	{ "stevearc/conform.nvim", opts = {} },
 	--- APPEARANCE
 	{ "kyazdani42/nvim-web-devicons" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
@@ -384,7 +385,7 @@ local function lsp_keymaps(bufnr)
 	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>")
 	map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 	map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-	map("n", "<leader>bf", vim.lsp.buf.format)
+	map("n", "<leader>bf", ":Format<cr>")
 end
 
 local status, lspconfig = pcall(require, "lspconfig")
@@ -574,4 +575,24 @@ treesitter.setup({
 --- [[ ]]
 
 --- [[  CONFORM  ]]
+require("conform").setup({
+	formatters_by_ft = {
+	    lua = { "stylua" },
+	    javascript = { "prettierd", "prettier", stop_after_first = true },
+	    javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+	    typescript = { "prettierd", "prettier", stop_after_first = true },
+	    typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+	}
+})
+vim.api.nvim_create_user_command("Format", function(args)
+  local range = nil
+  if args.count ~= -1 then
+    local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+    range = {
+      start = { args.line1, 0 },
+      ["end"] = { args.line2, end_line:len() },
+    }
+  end
+  require("conform").format({ async = true, lsp_format = "fallback", range = range })
+end, { range = true })
 --- [[ ]]
