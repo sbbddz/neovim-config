@@ -273,6 +273,7 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
+		["<C-Space>"] = cmp.mapping.complete(),
 	},
 	sources = {
 		{ name = "nvim_lsp" },
@@ -570,4 +571,7 @@ treesitter.setup({
 	highlight = { enable = true },
 	incremental_selection = { enable = true },
 })
+--- [[ ]]
+
+--- [[  CONFORM  ]]
 --- [[ ]]
