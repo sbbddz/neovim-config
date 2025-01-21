@@ -86,11 +86,15 @@ require("lazy").setup({
 	{ "willothy/flatten.nvim", opts = {} },
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-telescope/telescope.nvim" },
-	{ 'stevearc/oil.nvim', opts = {
-		keymaps = {
-		    ["<C-t>"] = false
-		}
-	}, dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{
+		"stevearc/oil.nvim",
+		opts = {
+			keymaps = {
+				["<C-t>"] = false,
+			},
+		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 	--- LSP
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
@@ -111,6 +115,7 @@ require("lazy").setup({
 	--- APPEARANCE
 	{ "kyazdani42/nvim-web-devicons" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "rebelot/kanagawa.nvim" },
 	--- OTHER LANGUAGES
 	{ "Hoffs/omnisharp-extended-lsp.nvim" },
 }, {
@@ -243,9 +248,27 @@ require("catppuccin").setup({
 			mantle = "#0e0e0e",
 			crust = "#080808",
 		},
-	}
+	},
 })
-vim.cmd.colorscheme("catppuccin")
+require("kanagawa").setup({
+	colors = {
+		palette = {
+			sumiInk0 = "#191919",
+			sumiInk4 = "#DCD7BA",
+			oldWhite = "#DCD7BA",
+			springViolet1 = "#DCD7BA",
+		},
+	},
+	overrides = function(_)
+		return {
+			LineNr = { fg = "#6D6951" },
+			SpecialKey = { fg = "#6D6951" },
+			Whitespace = { fg = "#6D6951" },
+		}
+	end,
+})
+-- vim.cmd.colorscheme("catppuccin")
+vim.cmd("colorscheme kanagawa")
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
 --- [[ ]]
@@ -278,10 +301,10 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "path",    keyword_length = 5 },
-		{ name = "buffer",  keyword_length = 5 },
+		{ name = "path", keyword_length = 5 },
+		{ name = "buffer", keyword_length = 5 },
 		{ name = "luasnip", keyword_length = 2 },
-		{ name = "jira",    keyword_length = 1 },
+		{ name = "jira", keyword_length = 1 },
 	},
 	formatting = {
 		format = function(entry, item)
@@ -346,7 +369,8 @@ local servers = {
 	"omnisharp",
 	"tailwindcss",
 	"zls",
-	"denols"
+	"denols",
+	"hls",
 }
 
 --- [[  LSP CONFIG  ]]
@@ -451,13 +475,13 @@ lspconfig.omnisharp.setup({
 	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
 	settings = {
 		FormattingOptions = {
-			OrganizeImports = true
+			OrganizeImports = true,
 		},
 		RoslynExtensionsOptions = {
 			EnableAnalyzersSupport = true,
 			EnableImportCompletion = true,
-			AnalyzeOpenDocumentsOnly = true
-		}
+			AnalyzeOpenDocumentsOnly = true,
+		},
 	},
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
@@ -577,22 +601,22 @@ treesitter.setup({
 --- [[  CONFORM  ]]
 require("conform").setup({
 	formatters_by_ft = {
-	    lua = { "stylua" },
-	    javascript = { "prettierd", "prettier", stop_after_first = true },
-	    javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-	    typescript = { "prettierd", "prettier", stop_after_first = true },
-	    typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-	}
+		lua = { "stylua" },
+		javascript = { "prettierd", "prettier", stop_after_first = true },
+		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+		typescript = { "prettierd", "prettier", stop_after_first = true },
+		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+	},
 })
 vim.api.nvim_create_user_command("Format", function(args)
-  local range = nil
-  if args.count ~= -1 then
-    local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-    range = {
-      start = { args.line1, 0 },
-      ["end"] = { args.line2, end_line:len() },
-    }
-  end
-  require("conform").format({ async = true, lsp_format = "fallback", range = range })
+	local range = nil
+	if args.count ~= -1 then
+		local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+		range = {
+			start = { args.line1, 0 },
+			["end"] = { args.line2, end_line:len() },
+		}
+	end
+	require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
 --- [[ ]]
