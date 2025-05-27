@@ -104,7 +104,6 @@ require("lazy").setup({
 	},
 	--- LSP
 	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-nvim-lsp" },
@@ -404,20 +403,6 @@ dap.listeners.after['event_terminated']['me'] = function()
 end
 --- [[ ]]
 
---- [[  GLOBALS  ]]
-local servers = {
-	"lua_ls",
-	"ts_ls",
-	"gopls",
-	"templ",
-	"omnisharp",
-	"tailwindcss",
-	"zls",
-	"denols",
-	"hls",
-	"ruby_lsp",
-}
-
 --- [[  LSP CONFIG  ]]
 local status, mason = pcall(require, "mason")
 
@@ -426,18 +411,7 @@ if not status then
 	return
 end
 
-local status, masonlsp = pcall(require, "mason-lspconfig")
-
-if not status then
-	print("[WARN] mason is not installed and its required to install language servers")
-	return
-end
-
 mason.setup({})
-masonlsp.setup({
-	automatic_installation = false,
-	ensure_installed = {},
-})
 
 local function lsp_keymaps(bufnr)
 	local map = function(m, lhs, rhs)
@@ -457,13 +431,6 @@ local function lsp_keymaps(bufnr)
 	map("n", "<leader>bf", ":Format<cr>")
 end
 
-local status, lspconfig = pcall(require, "lspconfig")
-
-if not status then
-	print("[WARN] lspconfig is not installed and its required to install language servers")
-	return
-end
-
 local function on_attach(_, bufnr)
 	local buf_command = vim.api.nvim_buf_create_user_command
 
@@ -476,14 +443,12 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-for _, server in ipairs(servers) do
-	lspconfig[server].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-end
+vim.lsp.config('*', {
+	on_attach = on_attach,
+	capabilities = capabilities
+})
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -499,19 +464,20 @@ lspconfig.lua_ls.setup({
 })
 
 -- Fix conflicting denols and tsserver
-lspconfig.ts_ls.setup({
+vim.lsp.config('ts_ls', {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	root_dir = lspconfig.util.root_pattern("package.json"),
+	root_dir = { "package.json" },
 	single_file_support = false,
 })
-lspconfig.denols.setup({
+
+vim.lsp.config('denols', {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+	root_dir = {"deno.json", "deno.jsonc"},
 })
 
-lspconfig.omnisharp.setup({
+vim.lsp.config('omnisharp', {
 	handlers = {
 		["textDocument/definition"] = require("omnisharp_extended").definition_handler,
 		["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
@@ -541,6 +507,23 @@ lspconfig.omnisharp.setup({
 	end,
 	capabilities = capabilities,
 })
+
+
+local enabled_servers = {
+	"lua_ls",
+	"ts_ls",
+	"gopls",
+	"templ",
+	"omnisharp",
+	"tailwindcss",
+	"zls",
+	"denols",
+	"astro",
+	"hls",
+	"ruby_lsp",
+}
+vim.lsp.enable(enabled_servers)
+
 --- [[ ]]
 
 ---- [[  TELESCOPE  ]]
@@ -651,6 +634,8 @@ require("conform").setup({
 		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 		typescript = { "prettierd", "prettier", stop_after_first = true },
 		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+		html = { "prettierd", "prettier", stop_after_first = true },
+		astro = { "prettierd", "prettier", stop_after_first = true },
 		ruby = { "rubocop" },
 	},
 })
