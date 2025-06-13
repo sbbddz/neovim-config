@@ -32,7 +32,7 @@ vim.opt.backup = false
 vim.opt.hidden = true
 vim.opt.updatetime = 50
 vim.opt.signcolumn = "number"
--- don't treat _ as part of the word (will try)
+-- don't treat _ as part of the word
 vim.opt.iskeyword:remove("_")
 -- default, acutally handled by vim-sleuth
 vim.opt.tabstop = 4
@@ -103,7 +103,7 @@ require("lazy").setup({
 		end,
 	},
 	--- LSP
-	{ "williamboman/mason.nvim" },
+	{ "mason-org/mason.nvim" },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-nvim-lsp" },
@@ -405,7 +405,6 @@ end
 
 --- [[  LSP CONFIG  ]]
 local status, mason = pcall(require, "mason")
-
 if not status then
 	print("[WARN] mason is not installed and its required to install language servers")
 	return
@@ -463,20 +462,6 @@ vim.lsp.config('lua_ls', {
 	},
 })
 
--- Fix conflicting denols and tsserver
-vim.lsp.config('ts_ls', {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	root_dir = { "package.json" },
-	single_file_support = false,
-})
-
-vim.lsp.config('denols', {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	root_dir = {"deno.json", "deno.jsonc"},
-})
-
 vim.lsp.config('omnisharp', {
 	handlers = {
 		["textDocument/definition"] = require("omnisharp_extended").definition_handler,
@@ -517,9 +502,7 @@ local enabled_servers = {
 	"omnisharp",
 	"tailwindcss",
 	"zls",
-	"denols",
 	"astro",
-	"hls",
 	"ruby_lsp",
 }
 vim.lsp.enable(enabled_servers)
