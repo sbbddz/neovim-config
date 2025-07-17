@@ -375,31 +375,24 @@ keymap.set("n", "<leader>br", require("dap.repl").toggle, {})
 keymap.set("n", "<leader>bs", dap.terminate, {})
 local api = vim.api
 local keymap_restore = {}
-dap.listeners.after['event_initialized']['me'] = function()
-  for _, buf in pairs(api.nvim_list_bufs()) do
-    local keymaps = api.nvim_buf_get_keymap(buf, 'n')
-    for _, keymap in pairs(keymaps) do
-      if keymap.lhs == "K" then
-        table.insert(keymap_restore, keymap)
-        api.nvim_buf_del_keymap(buf, 'n', 'K')
-      end
-    end
-  end
-  api.nvim_set_keymap(
-    'n', 'K', '<Cmd>lua require("dap.ui.widgets").hover()<CR>', { silent = true })
+dap.listeners.after["event_initialized"]["me"] = function()
+	for _, buf in pairs(api.nvim_list_bufs()) do
+		local keymaps = api.nvim_buf_get_keymap(buf, "n")
+		for _, keymap in pairs(keymaps) do
+			if keymap.lhs == "K" then
+				table.insert(keymap_restore, keymap)
+				api.nvim_buf_del_keymap(buf, "n", "K")
+			end
+		end
+	end
+	api.nvim_set_keymap("n", "K", '<Cmd>lua require("dap.ui.widgets").hover()<CR>', { silent = true })
 end
 
-dap.listeners.after['event_terminated']['me'] = function()
-  for _, keymap in pairs(keymap_restore) do
-    api.nvim_buf_set_keymap(
-      keymap.buffer,
-      keymap.mode,
-      keymap.lhs,
-      keymap.rhs,
-      { silent = keymap.silent == 1 }
-    )
-  end
-  keymap_restore = {}
+dap.listeners.after["event_terminated"]["me"] = function()
+	for _, keymap in pairs(keymap_restore) do
+		api.nvim_buf_set_keymap(keymap.buffer, keymap.mode, keymap.lhs, keymap.rhs, { silent = keymap.silent == 1 })
+	end
+	keymap_restore = {}
 end
 --- [[ ]]
 
@@ -425,8 +418,8 @@ local function lsp_keymaps(bufnr)
 	map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
 	map("n", "ge", "<cmd>lua vim.lsp.buf.references()<cr>")
 	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>")
-	map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-	map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+	map("n", "gk", "<cmd>lua vim.diagnostic.jump({ count=-1, float=true })<cr>")
+	map("n", "gj", "<cmd>lua vim.diagnostic.jump({ count=1, float=true })<cr>")
 	map("n", "<leader>bf", ":Format<cr>")
 end
 
@@ -442,12 +435,12 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-vim.lsp.config('*', {
+vim.lsp.config("*", {
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
 })
 
-vim.lsp.config('lua_ls', {
+vim.lsp.config("lua_ls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -462,7 +455,12 @@ vim.lsp.config('lua_ls', {
 	},
 })
 
-vim.lsp.config('omnisharp', {
+--vim.lsp.config("ts_ls", {
+--	on_attach = on_attach,
+--	capabilities = capabilities,
+--})
+
+vim.lsp.config("omnisharp", {
 	handlers = {
 		["textDocument/definition"] = require("omnisharp_extended").definition_handler,
 		["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
@@ -492,7 +490,6 @@ vim.lsp.config('omnisharp', {
 	end,
 	capabilities = capabilities,
 })
-
 
 local enabled_servers = {
 	"lua_ls",
@@ -613,12 +610,12 @@ treesitter.setup({
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		javascript = { "prettierd", "prettier", stop_after_first = true },
-		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-		typescript = { "prettierd", "prettier", stop_after_first = true },
-		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-		html = { "prettierd", "prettier", stop_after_first = true },
-		astro = { "prettierd", "prettier", stop_after_first = true },
+		javascript = { "prettier", stop_after_first = true },
+		javascriptreact = { "prettier", stop_after_first = true },
+		typescript = { "prettier", stop_after_first = true },
+		typescriptreact = { "prettier", stop_after_first = true },
+		html = { "prettier", stop_after_first = true },
+		astro = { "prettier", stop_after_first = true },
 		ruby = { "rubocop" },
 	},
 })
