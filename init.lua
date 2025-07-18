@@ -120,7 +120,6 @@ require("lazy").setup({
 	{ "stevearc/conform.nvim", opts = {} },
 	--- APPEARANCE
 	{ "kyazdani42/nvim-web-devicons" },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "rebelot/kanagawa.nvim" },
 	--- OTHER LANGUAGES
 	{ "Hoffs/omnisharp-extended-lsp.nvim" },
@@ -182,80 +181,10 @@ function Terminal.open_or_create_term_buffer()
 	end
 end
 
----Toggles the current window as a full screen window.
----In behind, it just creates a new tab and destroys it when you're not in main tab
----This would not work if using tabs, for example, creating it manually, but
----I don't use tabs, so its OK
-function Terminal.toggle_window_fullscreen()
-	local current_tabpage = vim.api.nvim_get_current_tabpage()
-	local current_number_of_splits = vim.api.nvim_tabpage_list_wins(current_tabpage)
-
-	-- Do not create a tab when unexpectedly issued the command
-	if #current_number_of_splits <= 1 and current_tabpage == 1 then
-		return
-	end
-
-	if current_tabpage ~= 1 then
-		vim.cmd(":tabclose")
-	else
-		vim.cmd(":tabnew %")
-	end
-end
-
-function Terminal.toggle_term_in_current_window()
-	local term_buf = get_term_buffer_if_exists()
-
-	if term_buf == vim.api.nvim_get_current_buf() then
-		vim.cmd(":e #")
-		return
-	end
-
-	if term_buf ~= nil then
-		vim.api.nvim_set_current_buf(term_buf)
-	else
-		vim.cmd(":term")
-	end
-end
-
 keymap.set("n", "<C-t>", Terminal.open_or_create_term_buffer, { noremap = true })
-keymap.set("n", "<leader>t", Terminal.toggle_term_in_current_window, { noremap = true })
-keymap.set("n", "<leader>so", Terminal.toggle_window_fullscreen)
 --- [[ ]]
 
 ---- [[  COLORSCHEME  ]]
-require("catppuccin").setup({
-	flavor = "mocha",
-	color_overrides = {
-		mocha = { -- Inspiration from https://github.com/catppuccin/nvim/discussions/323#discussioncomment-8445178
-			rosewater = "#ffffff",
-			flamingo = "#ffffff",
-			red = "#ddc02c",
-			maroon = "#ffffff",
-			pink = "#ffdd33",
-			mauve = "#ffdd33",
-			peach = "#96a6c8",
-			yellow = "#88b992",
-			green = "#abd37a",
-			teal = "#88b992",
-			sky = "#cc8c3c",
-			sapphire = "#96a6c8",
-			blue = "#9ab8d3",
-			lavender = "#9ab8d3",
-			text = "#e4e4e4",
-			subtext1 = "#d5c9b7",
-			subtext0 = "#bfb3a5",
-			overlay2 = "#aca195",
-			overlay1 = "#958b7e",
-			overlay0 = "#6f6660",
-			surface2 = "#585858",
-			surface1 = "#4b4b4b",
-			surface0 = "#353535",
-			base = "#151515",
-			mantle = "#0e0e0e",
-			crust = "#080808",
-		},
-	},
-})
 require("kanagawa").setup({
 	colors = {
 		palette = {
@@ -273,18 +202,13 @@ require("kanagawa").setup({
 		}
 	end,
 })
--- vim.cmd.colorscheme("catppuccin")
 vim.cmd("colorscheme kanagawa")
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
 --- [[ ]]
 
 --- [[  NVIM-CMP  ]]
-local status, cmp = pcall(require, "cmp")
-
-if not status then
-	return
-end
+local cmp = require("cmp")
 
 vim.cmd([[
   set completeopt=menuone,noinsert,noselect
@@ -333,11 +257,7 @@ cmp.setup({
 --- [[ ]]
 
 ---- [[  DAP ]]
-local status, dap = pcall(require, "dap")
-
-if not status then
-	print("[WARN] Debugger Adapter Protocol is not installed")
-end
+local dap = require("dap")
 
 -- NOTE: On macos is required to compile netcoredbg from source and not install it from
 -- Mason as netcoredbg isn't generally avaliable for ARM nor downloable from Mason
@@ -397,12 +317,7 @@ end
 --- [[ ]]
 
 --- [[  LSP CONFIG  ]]
-local status, mason = pcall(require, "mason")
-if not status then
-	print("[WARN] mason is not installed and its required to install language servers")
-	return
-end
-
+local mason = require("mason")
 mason.setup({})
 
 local function lsp_keymaps(bufnr)
@@ -423,26 +338,24 @@ local function lsp_keymaps(bufnr)
 	map("n", "<leader>bf", ":Format<cr>")
 end
 
-local function on_attach(_, bufnr)
+local function attach(ev)
 	local buf_command = vim.api.nvim_buf_create_user_command
 
-	buf_command(bufnr, "LspFormat", function()
+	buf_command(ev.buf, "LspFormat", function()
 		vim.lsp.buf.format()
 	end, { desc = "Format buffer with language server" })
 
-	lsp_keymaps(bufnr)
+	lsp_keymaps(ev.buf)
 end
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-vim.lsp.config("*", {
-	on_attach = on_attach,
-	capabilities = capabilities,
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = attach,
 })
 
-vim.lsp.config("lua_ls", {
-	on_attach = on_attach,
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+vim.lsp.config("*", {
 	capabilities = capabilities,
+})
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -454,12 +367,6 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
-
---vim.lsp.config("ts_ls", {
---	on_attach = on_attach,
---	capabilities = capabilities,
---})
-
 vim.lsp.config("omnisharp", {
 	handlers = {
 		["textDocument/definition"] = require("omnisharp_extended").definition_handler,
@@ -477,8 +384,7 @@ vim.lsp.config("omnisharp", {
 			AnalyzeOpenDocumentsOnly = true,
 		},
 	},
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
+	on_attach = function(client, _)
 		local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
 		for i, v in ipairs(tokenModifiers) do
 			tokenModifiers[i] = v:gsub(" ", "_")
@@ -488,7 +394,6 @@ vim.lsp.config("omnisharp", {
 			tokenTypes[i] = v:gsub(" ", "_")
 		end
 	end,
-	capabilities = capabilities,
 })
 
 local enabled_servers = {
@@ -503,7 +408,6 @@ local enabled_servers = {
 	"ruby_lsp",
 }
 vim.lsp.enable(enabled_servers)
-
 --- [[ ]]
 
 ---- [[  TELESCOPE  ]]
@@ -523,15 +427,8 @@ for hl, col in pairs(telescope_overrides) do
 	vim.api.nvim_set_hl(0, hl, col)
 end
 
-local status, telescope = pcall(require, "telescope")
-if not status then
-	return
-end
-
-local status, builtin = pcall(require, "telescope.builtin")
-if not status then
-	return
-end
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
 
 keymap.set("n", "<leader>ff", function()
 	builtin.find_files({
@@ -580,12 +477,7 @@ telescope.setup({
 --- [[ ]]
 
 --- [[  TREESITTER  ]]
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not status then
-	print("[WARN] treesitter is not installed and is needed to make this config work correctly")
-	return
-end
+local treesitter = require("nvim-treesitter.configs")
 
 ---@diagnostic disable-next-line: missing-fields
 treesitter.setup({
