@@ -48,6 +48,8 @@ vim.opt.formatoptions:remove({ "o" })
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.undofile = true
+vim.opt.ttyfast = true
+vim.opt.lazyredraw = true
 --- [[ ]]
 
 --- [[  REMAPS  ]]
@@ -83,7 +85,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	--- MISCELLANEA
-	{ "willothy/flatten.nvim", opts = {} },
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-telescope/telescope.nvim" },
 	{ "tpope/vim-fugitive" },
@@ -121,6 +122,7 @@ require("lazy").setup({
 	--- APPEARANCE
 	{ "kyazdani42/nvim-web-devicons" },
 	{ "rebelot/kanagawa.nvim" },
+	{ "sainnhe/sonokai" },
 	--- OTHER LANGUAGES
 	{ "Hoffs/omnisharp-extended-lsp.nvim" },
 }, {
@@ -188,7 +190,7 @@ keymap.set("n", "<C-t>", Terminal.open_or_create_term_buffer, { noremap = true }
 require("kanagawa").setup({
 	colors = {
 		palette = {
-			sumiInk0 = "#191919",
+			sumiInk0 = "#000000",
 			sumiInk4 = "#DCD7BA",
 			oldWhite = "#DCD7BA",
 			springViolet1 = "#DCD7BA",
@@ -202,9 +204,13 @@ require("kanagawa").setup({
 		}
 	end,
 })
-vim.cmd("colorscheme kanagawa")
+vim.g.sonokai_transparent_background = 2
+vim.cmd("colorscheme sonokai")
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
+vim.cmd("hi StatusLine ctermbg=NONE guibg=NONE")
+vim.cmd("hi StatusLineNC ctermbg=NONE guibg=NONE")
+vim.cmd("hi NormalNC ctermbg=NONE guibg=NONE")
 --- [[ ]]
 
 --- [[  NVIM-CMP  ]]
@@ -412,7 +418,7 @@ vim.lsp.enable(enabled_servers)
 
 ---- [[  TELESCOPE  ]]
 local telescope_foreground_color = "#e2e2e2"
-local telescope_background_color = "#191919"
+local telescope_background_color = "#101010"
 local telescope_overrides = {
 	TelescopeTitle = { fg = telescope_foreground_color, bold = true },
 	TelescopePromptNormal = { bg = telescope_background_color, fg = telescope_foreground_color },
