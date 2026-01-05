@@ -97,12 +97,6 @@ require("lazy").setup({
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	{
-		"supermaven-inc/supermaven-nvim",
-		config = function()
-			require("supermaven-nvim").setup({})
-		end,
-	},
 	--- LSP
 	{ "mason-org/mason.nvim" },
 	{ "neovim/nvim-lspconfig" },
@@ -122,7 +116,6 @@ require("lazy").setup({
 	--- APPEARANCE
 	{ "kyazdani42/nvim-web-devicons" },
 	{ "rebelot/kanagawa.nvim" },
-	{ "sainnhe/sonokai" },
 	--- OTHER LANGUAGES
 	{ "Hoffs/omnisharp-extended-lsp.nvim" },
 }, {
@@ -196,6 +189,7 @@ require("kanagawa").setup({
 			springViolet1 = "#DCD7BA",
 		},
 	},
+	statementStyle = { bold = true },
 	overrides = function(_)
 		return {
 			LineNr = { fg = "#6D6951" },
@@ -204,8 +198,7 @@ require("kanagawa").setup({
 		}
 	end,
 })
-vim.g.sonokai_transparent_background = 2
-vim.cmd("colorscheme sonokai")
+vim.cmd("colorscheme kanagawa")
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
 vim.cmd("hi StatusLine ctermbg=NONE guibg=NONE")
@@ -418,7 +411,7 @@ vim.lsp.enable(enabled_servers)
 
 ---- [[  TELESCOPE  ]]
 local telescope_foreground_color = "#e2e2e2"
-local telescope_background_color = "#101010"
+local telescope_background_color = "#0a0a0a"
 local telescope_overrides = {
 	TelescopeTitle = { fg = telescope_foreground_color, bold = true },
 	TelescopePromptNormal = { bg = telescope_background_color, fg = telescope_foreground_color },
