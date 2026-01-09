@@ -115,6 +115,7 @@ require("lazy").setup({
 	{ "stevearc/conform.nvim", opts = {} },
 	--- APPEARANCE
 	{ "kyazdani42/nvim-web-devicons" },
+	{ "srcery-colors/srcery-vim" },
 	{ "rebelot/kanagawa.nvim" },
 	--- OTHER LANGUAGES
 	{ "Hoffs/omnisharp-extended-lsp.nvim" },
@@ -198,7 +199,8 @@ require("kanagawa").setup({
 		}
 	end,
 })
-vim.cmd("colorscheme kanagawa")
+vim.cmd("let g:srcery_underline = 0")
+vim.cmd("colorscheme srcery")
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi LineNr ctermbg=NONE guibg=NONE")
 vim.cmd("hi StatusLine ctermbg=NONE guibg=NONE")
