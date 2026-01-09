@@ -18,8 +18,7 @@ endif
 " plugins
 call plug#begin()
 " appearance
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'drsooch/gruber-darker-vim'
+Plug 'srcery-colors/srcery-vim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " fzf
@@ -94,9 +93,13 @@ nnoremap <leader>tt :terminal<cr>
 nnoremap <leader>vs :vs<cr>
 
 " appearance
-colorscheme GruberDarker
+let g:srcery_underline = 0
+colorscheme srcery
 hi Normal ctermbg=NONE guibg=NONE
 hi LineNr ctermbg=NONE guibg=NONE
+hi StatusLine ctermbg=NONE guibg=NONE
+hi StatusLineNC ctermbg=NONE guibg=NONE
+hi NormalNC ctermbg=NONE guibg=NONE
 
 " coc
 inoremap <silent><expr> <C-n>
